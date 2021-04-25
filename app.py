@@ -46,5 +46,14 @@ def edit_actor(actor_id):
     )
 
 
+@app.route("/actors/view/<int:actor_id>", methods=["GET"])
+def view_actor(actor_id):
+    return render_template(
+        "view.jinja2",
+        title="View Actor Information",
+        description="View of single actor and their oscar information"
+    )
+
+
 if __name__ == '__main__':
     app.run(debug=True)
