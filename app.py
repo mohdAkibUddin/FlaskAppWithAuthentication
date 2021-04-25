@@ -8,6 +8,8 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 
 @app.route("/")
+@app.route("/home/")
+@app.route("/index/")
 def home():
     return render_template(
         "home.jinja2",
