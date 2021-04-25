@@ -1,0 +1,38 @@
+{% extends 'layout.jinja2' %}
+
+{% block content %}
+    <div class="container">
+        <h6>{{title}}</h6>
+        <p>{{description}}</p>
+    </div>
+    <div class="form-wrapper">
+        <form method="POST" action="{{ url_for("insert_actor") }}">
+            <fieldset class="form-field">
+                {{ form.csrf_token }}
+                {{ form.identifier.label }}
+                {{ form.identifier }}
+            </fieldset>
+             <fieldset class="form-field">
+                {{ form.csrf_token }}
+                {{ form.name.label }}
+                {{ form.name }}
+            </fieldset>
+            <fieldset class="form-field">
+                {{ form.csrf_token }}
+                {{ form.movie.label }}
+                {{ form.movie }}
+            </fieldset>
+            <fieldset class="form-field">
+                {{ form.csrf_token }}
+                {{ form.age.label }}
+                {{ form.age }}
+            </fieldset>
+            <fieldset class="form-field">
+                {{ form.csrf_token }}
+                {{ form.year.label }}
+                {{ form.year }}
+            </fieldset>
+            {{ form.submit }}
+        </form>
+    </div>
+{% endblock %}
