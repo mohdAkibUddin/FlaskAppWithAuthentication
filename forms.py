@@ -27,3 +27,21 @@ class NewForm(FlaskForm):
     submit = SubmitField("Submit")
 
 
+class EditForm(FlaskForm):
+    name = TextField(
+        "Name",
+        validators=[DataRequired()]
+    )
+    movie = TextField(
+        "Movie",
+        validators=[DataRequired()]
+    )
+    age = TextField(
+        "Age",
+        validators=[DataRequired()]
+    )
+    year = TextField(
+        "Year",
+        validators=[DataRequired()]
+    )
+    submit = SubmitField("Submit")
