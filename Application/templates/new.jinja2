@@ -6,7 +6,7 @@
         <p>{{description}}</p>
     </div>
     <div class="form-wrapper">
-        <form method="POST" action="{{ url_for("insert_actor") }}">
+        <form method="POST" action="{{ url_for("routes_blueprint.insert_actor") }}">
             <fieldset class="form-field">
                 {{ form.csrf_token }}
                 {{ form.identifier.label }}
