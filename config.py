@@ -8,4 +8,4 @@ load_dotenv(path.join(basedir, ".env"))
 TESTING = True
 DEBUG = True
 SECRET_KEY = environ.get("SECRET_KEY")
-SERVER_NAME = "localhost:5000"
+SERVER_NAME = "0.0.0.0:5000"
