@@ -1,9 +1,9 @@
 from flask import Flask, redirect, url_for
 from flask import render_template
-from forms import NewForm, EditForm
+from Application.forms import NewForm, EditForm
 
 app = Flask(__name__)
-app.config.from_pyfile("config.py")
+app.config.from_pyfile("../config.py")
 
 
 @app.route("/")
