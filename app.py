@@ -8,6 +8,8 @@ app.config['SECRET_KEY'] = SECRET_KEY
 
 
 @app.route("/")
+@app.route("/home/")
+@app.route("/index/")
 def home():
     return render_template(
         "home.jinja2",
@@ -42,6 +44,40 @@ def edit_actor(actor_id):
         form=form,
         template="form-template"
     )
+
+
+@app.route("/actors/view/<int:actor_id>", methods=["GET"])
+def view_actor(actor_id):
+    return render_template(
+        "view.jinja2",
+        title="View Actor Information",
+        description="View of single actor and their oscar information"
+    )
+
+
+@app.route("/api/actors/", methods=["GET"])
+def api_view_all_records() -> str:
+    pass
+
+
+@app.route("/api/actors/<int:actor_id>/", methods=["GET"])
+def api_view_record(actor_id) -> str:
+    pass
+
+
+@app.route("/api/actors/", methods=["POST"])
+def api_add_record() -> str:
+    pass
+
+
+@app.route("/api/actors/<int:actor_id>/", methods=["PUT"])
+def api_update_record(actor_id) -> str:
+    pass
+
+
+@app.route("/api/actors/<int:actor_id>/", methods=["DELETE"])
+def api_delete_record(actor_id) -> str:
+    pass
 
 
 if __name__ == '__main__':
