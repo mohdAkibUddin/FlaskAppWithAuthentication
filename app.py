@@ -16,5 +16,33 @@ def home():
     )
 
 
+@app.route("/actors/new/", methods=["GET", "POST"])
+def insert_actor():
+    form = NewForm()
+    if form.validate_on_submit():
+        return redirect(url_for("home"))
+    return render_template(
+        "new.jinja2",
+        title="New Actor",
+        description="Insert an actor into the database",
+        form=form,
+        template="form-template"
+    )
+
+
+@app.route("/actors/edit/<int:actor_id>", methods=["GET", "POST"])
+def edit_actor(actor_id):
+    form = EditForm()
+    if form.validate_on_submit():
+        return redirect(url_for("home"))
+    return render_template(
+        "edit.jinja2",
+        title="Edit Actor",
+        description="Complete this form to update actor information",
+        form=form,
+        template="form-template"
+    )
+
+
 if __name__ == '__main__':
     app.run(debug=True)
