@@ -1,0 +1,21 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+
+<div class="card m-5 p-2">
+    <h5 class="card-title">{{ actor.name }}</h5>
+
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Movie: {{ actor.movie }}</li>
+        <li class="list-group-item">Age: {{ actor.age }}</li>
+        <li class="list-group-item">Year: {{ actor.year }}</li>
+    </ul>
+
+    <div class="card-body">
+        <a href="/actors/edit/{{actor.actorID}}/" class="card-link btn btn-primary">Edit</a>
+    </div>
+
+    <form action="/actors/delete/{{actor.actorID}}/" method="post"><button type="submit" class="btn btn-danger">Delete</button></form>
+</div>
+
+{% endblock %}
