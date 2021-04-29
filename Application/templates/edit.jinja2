@@ -1,33 +1,31 @@
-{% extends 'layout.jinja2' %}
+{% extends "layout.jinja2" %}
 
 {% block content %}
-    <div class="container">
-        <h6>{{title}}</h6>
-        <p>{{description}}</p>
+<form action="/actors/edit/{{actor.actorID}}/" method="post">
+    <div class="row">
+        <div class="col">
+            <label for="name">name</label>
+            <input id="name" type="text" class="form-control" placeholder="name"
+                   name="name" value="{{actor.name}}">
+        </div>
+        <div class="col">
+            <label for="movie">movie</label>
+            <input id="movie" type="text" class="form-control" placeholder="movie" name="movie" value="{{actor.movie}}">
+        </div>
     </div>
-    <div class="form-wrapper">
-        <form method="POST" action="{{ url_for("edit_actor") }}">
-             <fieldset class="form-field">
-                {{ form.csrf_token }}
-                {{ form.name.label }}
-                {{ form.name }}
-            </fieldset>
-            <fieldset class="form-field">
-                {{ form.csrf_token }}
-                {{ form.movie.label }}
-                {{ form.movie }}
-            </fieldset>
-            <fieldset class="form-field">
-                {{ form.csrf_token }}
-                {{ form.age.label }}
-                {{ form.age }}
-            </fieldset>
-            <fieldset class="form-field">
-                {{ form.csrf_token }}
-                {{ form.year.label }}
-                {{ form.year }}
-            </fieldset>
-            {{ form.submit }}
-        </form>
+    <div class="row">
+        <div class="col">
+            <label for="age">age</label>
+            <input id="age" type="text" class="form-control" placeholder="age" name="age" value="{{actor.age}}">
+        </div>
+        <div class="col">
+            <label for="year">year</label>
+            <input id="year" type="text" class="form-control" placeholder="year" name="year" value="{{actor.year}}">
+        </div>
     </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+
+</form>
 {% endblock %}
+
