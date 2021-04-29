@@ -3,13 +3,12 @@ from flask import render_template
 from forms import NewForm, EditForm
 
 app = Flask(__name__)
-SECRET_KEY = "notSoSecretKey"
-app.config['SECRET_KEY'] = SECRET_KEY
+app.config.from_pyfile("config.py")
 
 
 @app.route("/")
-@app.route("/home/")
 @app.route("/index/")
+@app.route("/home/")
 def home():
     return render_template(
         "home.jinja2",
@@ -81,4 +80,4 @@ def api_delete_record(actor_id) -> str:
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
